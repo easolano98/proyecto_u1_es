@@ -27,7 +27,12 @@ public class Matricula {
 		this.materia = materia;
 	}
 	
-	//SET y GET
+	@Override
+	public String toString() {
+		return "Matricula [numero=" + numero + ", estudiante=" + estudiante + "\n materia=" + materia + "]";
+	}
+	
+	
 	
 	
 	

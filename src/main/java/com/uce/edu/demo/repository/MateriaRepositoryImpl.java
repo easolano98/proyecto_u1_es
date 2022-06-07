@@ -9,13 +9,13 @@ public class MateriaRepositoryImpl implements IMateriaRepository {
 	@Override
 	public void insertar(Materia m) {
 		// TODO Auto-generated method stub
-	System.out.println("Se ha insertado materia");	
+	System.out.println("Se ha insertado materia "+m);	
 	}
 
 	@Override
 	public Materia buscar(String nombre) {
 		// TODO Auto-generated method stub
-		System.out.println("Buscando");
+		System.out.println("Buscando "+nombre);
 		Materia m=new Materia();
 		m.setNombre(nombre);
 		return m;
