@@ -9,30 +9,49 @@ import org.springframework.stereotype.Service;
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
 import com.uce.edu.demo.banco.modelo.Deposito;
 import com.uce.edu.demo.banco.repository.IDepositoRepository;
+
 @Service
-public class DepositoServiceImpl implements IDepositoService{
-	
+public class DepositoServiceImpl implements IDepositoService {
+
 	@Autowired
 	private ICuentaBancariaService bancariaService;
-	
+
 	@Autowired
 	private IDepositoRepository depositoRepository;
-	
-	
+
 	@Override
 	public void realizarDeposito(String numeroCtaDestino, BigDecimal monto) {
 		// TODO Auto-generated method stub
-		CuentaBancaria ctaDestino= this.bancariaService.buscar(numeroCtaDestino);
-		BigDecimal saldoCtaDestino=ctaDestino.getSaldo();
-		BigDecimal saldoFinal=saldoCtaDestino.add(monto);
+		CuentaBancaria ctaDestino = this.bancariaService.buscar(numeroCtaDestino);
+		BigDecimal saldoCtaDestino = ctaDestino.getSaldo();
+		BigDecimal saldoFinal = saldoCtaDestino.add(monto);
 		ctaDestino.setSaldo(saldoFinal);
 		this.bancariaService.actualizar(ctaDestino);
-		
-		Deposito deposito=new Deposito();
+
+		Deposito deposito = new Deposito();
 		deposito.setFecha(LocalDateTime.now());
 		deposito.setNumeroCuentaDestino(numeroCtaDestino);
 		deposito.setMonto(monto);
 		this.depositoRepository.insertarDeposito(deposito);
 	}
-	
+
+	@Override
+	public void editar(Deposito d) {
+		// TODO Auto-generated method stub
+
+		this.depositoRepository.actualizar(d);
+	}
+
+	@Override
+	public void eliminar(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		this.depositoRepository.eliminar(numeroCtaDestino);
+	}
+
+	@Override
+	public Deposito buscar(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		return this.depositoRepository.buscar(numeroCtaDestino);
+	}
+
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
 import com.uce.edu.demo.banco.repository.ICuentaBancariaRepository;
 @Service
-public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
+public class CuentaBancariaServiceImpl implements ICuentaBancariaService{
 	@Autowired
 	private ICuentaBancariaRepository cuentaBancariaRepo;
 	
@@ -20,6 +20,18 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 	public CuentaBancaria buscar(String numero) {
 		// TODO Auto-generated method stub
 		return this.cuentaBancariaRepo.buscar(numero);
+	}
+
+	@Override
+	public void crear(CuentaBancaria c) {
+		// TODO Auto-generated method stub
+		this.cuentaBancariaRepo.crear(c);
+	}
+
+	@Override
+	public void eliminar(String numero) {
+		// TODO Auto-generated method stub
+		this.cuentaBancariaRepo.eliminar(numero);
 	}
 
 }

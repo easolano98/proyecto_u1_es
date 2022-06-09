@@ -7,6 +7,7 @@ public class Deposito {
 	private LocalDateTime fecha;
 	private String numeroCuentaDestino;
 	private BigDecimal monto;
+	
 	//SET y GET
 	public LocalDateTime getFecha() {
 		return fecha;
