@@ -18,8 +18,6 @@ public class DepositoRepositoryImpl implements IDepositoRepository {
 		System.out.println("Se creo el deposito: " + d);
 	}
 
-	
-
 	@Override
 	public void actualizar(Deposito d) {
 		// TODO Auto-generated method stub
