@@ -22,6 +22,11 @@ public class FachadaCuentaBancariaServiceImpl implements IFachadaCuentaBancaria{
 	@Qualifier("ahorros")
 	private ICuentaBancariaService bancariaServiceA;
 	
+	@Autowired
+	@Qualifier("ahorroFut")
+	private ICuentaBancariaService bancariaServiceAhorroFuturo;
+	
+	
 	
 	@Override
 	public BigDecimal calcularInteres(String numeroCta) {
@@ -31,14 +36,19 @@ public class FachadaCuentaBancariaServiceImpl implements IFachadaCuentaBancaria{
 		
 		if(cta.getTipo().equals("A")) {
 			//Ahorros
+			System.out.println(cta.getNumero()+" Cuenta Ahorros\n");
 			interes= this.bancariaServiceA.calcularInteres(numeroCta, cta.getSaldo());
+		}else if(cta.getTipo().equals("AF")){
+			//AhorroFuturo
+			System.out.println(cta.getNumero()+" Cuenta Ahorros Futuro\n");
+			interes=this.bancariaServiceAhorroFuturo.calcularInteres(numeroCta, cta.getSaldo());	
 		}else {
 			//Corriente
+			System.out.println(cta.getNumero()+" Corriente\n");
 			interes= this.bancariaService.calcularInteres(numeroCta, cta.getSaldo());
 		}
 		
 		return interes;
 	}
 	
-
 }

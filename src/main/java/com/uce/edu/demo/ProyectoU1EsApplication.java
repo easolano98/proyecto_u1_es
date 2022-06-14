@@ -22,7 +22,7 @@ public class ProyectoU1EsApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		BigDecimal interes=this.bancaria.calcularInteres("1233");
+		BigDecimal interes=this.bancaria.calcularInteres("1998");
 		
 		System.out.println(interes);
 		
