@@ -6,8 +6,17 @@ public class CuentaBancaria {
 	
 	private String numero;
 	private BigDecimal saldo; //cuando se vaya a manejar valores monetarios, manejar BigDecimal
+	private String tipo;
+	
 	
 	//GET y SET
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
 	public String getNumero() {
 		return numero;
 	}
