@@ -26,7 +26,7 @@ public class MatriculaServiceImpl implements IMatriculaService {
 
 		this.matriculaRepository.insertar(ma);
 	}
-
+	
 	@Override
 	public Matricula buscar(String numero) {
 		// TODO Auto-generated method stub
